@@ -56,9 +56,7 @@ external class Chart {
     var data: ChartData?
         get() = definedExternally
         set(value) = definedExternally
-    var destroy: (() -> Any)?
-        get() = definedExternally
-        set(value) = definedExternally
+    fun destroy()
     var update: ((__0: ChartUpdateProps) -> Any)?
         get() = definedExternally
         set(value) = definedExternally

@@ -1,6 +1,8 @@
+import androidx.compose.runtime.*
 import org.jetbrains.compose.web.*
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
+import kotlin.random.*
 
 inline fun <T : Any> jso(): T =
     js("({})")
@@ -45,15 +47,23 @@ fun main() {
                 width(400.px)
             }
         }) {
-            Canvas({
-                ref {
-                    Chart(it, jso {
+            var data by remember { mutableStateOf(listOf(12, 19, 3, 5, 2, 3)) }
+            Button({
+                onClick {
+                    data = List(6) {Random.nextInt(6) }
+                }
+            }) {
+                Text("Update")
+            }
+            Canvas({}) {
+                DomSideEffect(data) {
+                    val chart = Chart(it, jso {
                         type = Type.bar
-                        data = jso {
+                        this.data = jso {
                             labels = arrayOf("Red", "Blue", "Yellow", "Green", "Purple", "Orange")
                             datasets = arrayOf(jso {
                                 label = "# of Votes"
-                                data = arrayOf(12, 19, 3, 5, 2, 3)
+                                this.data = data.toTypedArray()
                                 backgroundColor = arrayOf(
                                     "rgba(255, 99, 132, 0.2)",
                                     "rgba(54, 162, 235, 0.2)",
@@ -74,9 +84,11 @@ fun main() {
                             })
                         }
                     })
-                    onDispose { }
+                    onDispose {
+                        chart.destroy()
+                    }
                 }
-            })
+            }
         }
     }
 }

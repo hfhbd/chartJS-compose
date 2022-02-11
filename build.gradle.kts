@@ -17,10 +17,8 @@ kotlin {
     sourceSets {
         val jsMain by getting {
             dependencies {
-
                 implementation(compose.web.core)
                 implementation(npm("chart.js", "3.7.0", generateExternals = false))
-                //implementation(npm("@types/chart.js", "2.9.35", generateExternals = true))
             }
         }
         val jsTest by getting {
