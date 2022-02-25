@@ -1,10 +1,13 @@
+import org.jetbrains.compose.*
+
 plugins {
     kotlin("multiplatform") version "1.6.10"
-    id("org.jetbrains.compose") version "1.0.1"
+    id("org.jetbrains.compose") version "1.1.0"
 }
 
 repositories {
     mavenCentral()
+    jetbrainsCompose()
 }
 
 kotlin {
