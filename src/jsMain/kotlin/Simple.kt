@@ -4,11 +4,9 @@ import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import kotlin.random.*
 
-inline fun <T : Any> jso(): T =
-    js("({})")
+inline fun <T : Any> jso(): T = js("({})")
 
-inline fun <T : Any> jso(builder: T.() -> Unit): T =
-    jso<T>().apply(builder)
+inline fun <T : Any> jso(builder: T.() -> Unit): T = jso<T>().apply(builder)
 
 fun main() {
     Chart.register(
@@ -50,14 +48,14 @@ fun main() {
             var data by remember { mutableStateOf(listOf(12, 19, 3, 5, 2, 3)) }
             Button({
                 onClick {
-                    data = List(6) {Random.nextInt(6) }
+                    data = List(6) { Random.nextInt(6) }
                 }
             }) {
                 Text("Update")
             }
-            Canvas({}) {
-                DomSideEffect(data) {
-                    val chart = Chart(it, jso {
+            Canvas {
+                DisposableEffect(data) {
+                    val chart = Chart(scopeElement, jso {
                         type = Type.bar
                         this.data = jso {
                             labels = arrayOf("Red", "Blue", "Yellow", "Green", "Purple", "Orange")
