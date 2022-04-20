@@ -1,8 +1,8 @@
 import org.jetbrains.compose.*
 
 plugins {
-    kotlin("multiplatform") version "1.6.10"
-    id("org.jetbrains.compose") version "1.1.1"
+    kotlin("multiplatform") version "1.6.21"
+    id("org.jetbrains.compose") version "0.0.0-on-rebase-12-apr-2022-dev670"
 }
 
 repositories {
@@ -30,9 +30,4 @@ kotlin {
             }
         }
     }
-}
-
-rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
-    val nodeM1Version = "16.13.1"
-    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().nodeVersion = nodeM1Version
 }
