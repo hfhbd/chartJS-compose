@@ -21,7 +21,7 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 implementation(compose.web.core)
-                implementation(npm("chart.js", "3.7.0", generateExternals = false))
+                implementation(npm("chart.js", "3.7.1", generateExternals = false))
             }
         }
         val jsTest by getting {
