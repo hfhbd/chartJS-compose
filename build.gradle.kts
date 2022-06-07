@@ -7,7 +7,7 @@ plugins {
 
 repositories {
     mavenCentral()
-    jetbrainsCompose()
+    maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
 kotlin {
