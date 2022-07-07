@@ -1,7 +1,7 @@
 import org.jetbrains.compose.*
 
 plugins {
-    kotlin("multiplatform") version "1.7.0"
+    kotlin("multiplatform") version "1.7.10"
     id("org.jetbrains.compose") version "1.2.0-alpha01-dev741"
 }
 
