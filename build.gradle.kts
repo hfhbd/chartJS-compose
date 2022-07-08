@@ -1,7 +1,7 @@
 import org.jetbrains.compose.*
 
 plugins {
-    kotlin("multiplatform") version "1.7.0"
+    kotlin("js") version "1.7.0"
     id("org.jetbrains.compose") version "1.2.0-alpha01-dev741"
 }
 
@@ -16,18 +16,17 @@ kotlin {
             binaries.executable()
         }
     }
+}
 
-    sourceSets {
-        val jsMain by getting {
-            dependencies {
-                implementation(compose.web.core)
-                implementation(npm("chart.js", "3.7.1", generateExternals = false))
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
+dependencies {
+    implementation(compose.web.core)
+    implementation(npm("chart.js", "3.7.1", generateExternals = false))
+
+    testImplementation(kotlin("test"))
+}
+
+afterEvaluate {
+    rootProject.extensions.configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
+        versions.webpackCli.version = "4.10.0"
     }
 }
