@@ -2,7 +2,7 @@ import org.jetbrains.compose.*
 
 plugins {
     kotlin("js") version "1.7.10"
-    id("org.jetbrains.compose") version "1.2.0-beta02-dev795"
+    id("org.jetbrains.compose") version "1.2.0-beta02-dev798"
 }
 
 repositories {
