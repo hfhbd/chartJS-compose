@@ -20,13 +20,7 @@ kotlin {
 
 dependencies {
     implementation(compose.web.core)
-    implementation(npm("chart.js", "3.7.1", generateExternals = false))
+    implementation(npm("chart.js", "3.9.1", generateExternals = false))
 
     testImplementation(kotlin("test"))
-}
-
-afterEvaluate {
-    rootProject.extensions.configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
-        versions.webpackCli.version = "4.10.0"
-    }
 }
