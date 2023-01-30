@@ -1,7 +1,7 @@
 import org.jetbrains.compose.*
 
 plugins {
-    kotlin("js") version "1.7.20"
+    kotlin("js") version "1.8.0"
     id("org.jetbrains.compose") version "1.3.0"
 }
 
