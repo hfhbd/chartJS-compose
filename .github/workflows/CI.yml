@@ -13,9 +13,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: gradle/wrapper-validation-action@v1
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: 11
       - name: Build with Gradle
         run: ./gradlew build
