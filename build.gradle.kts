@@ -1,13 +1,9 @@
 import org.jetbrains.compose.*
 
 plugins {
-    kotlin("js") version "1.7.20"
+    kotlin("js") version "1.8.20"
     id("org.jetbrains.compose") version "1.4.0"
-}
-
-repositories {
-    mavenCentral()
-    maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    id("app.cash.licensee") version "1.7.0"
 }
 
 kotlin {
@@ -19,8 +15,12 @@ kotlin {
 }
 
 dependencies {
-    implementation(compose.web.core)
-    implementation(npm("chart.js", "3.9.1", generateExternals = false))
+    implementation(compose.html.core)
+    implementation(npm("chart.js", "3.9.1"))
 
     testImplementation(kotlin("test"))
+}
+
+licensee {
+    allow("Apache-2.0")
 }
