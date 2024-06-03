@@ -2,7 +2,7 @@ import org.jetbrains.compose.*
 
 plugins {
     kotlin("js") version "1.9.22"
-    id("org.jetbrains.compose") version "1.5.12"
+    id("org.jetbrains.compose") version "1.6.11"
     id("app.cash.licensee") version "1.11.0"
 }
 
